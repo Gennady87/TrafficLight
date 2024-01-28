@@ -31,16 +31,15 @@ class ViewController: UIViewController {
         greenLight.layer.cornerRadius = 70
         
         lightButton.layer.cornerRadius = 10
-        
+        lightButton.setTitle("Start", for: .normal)
     }
-
-
+    
+    
     @IBAction func lightButtonDidTapped() {
-        lightButton.setTitle(redLight.alpha == lightIsOff && yellowLight.alpha == lightIsOff && greenLight.alpha == lightIsOff ? "Start" : "Next", for: .normal)
-        
         if currentLight == "" {
             redLight.alpha = lightIsOn
             currentLight = "Red"
+            lightButton.setTitle("Next", for: .normal)
         } else if currentLight == "Red" {
             redLight.alpha = lightIsOff
             yellowLight.alpha = lightIsOn
